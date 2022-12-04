@@ -1,6 +1,9 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
-}
-
-module.exports = nextConfig
+  swcMinify: true,
+  trailingSlash: true,
+  images: {
+    loader: "default",
+    domains: ["media.graphassets.com"],
+  },
+};
