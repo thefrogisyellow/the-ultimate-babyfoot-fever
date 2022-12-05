@@ -5,15 +5,17 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
-} from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
-import {MatchGridItem} from "../components/grid-item";
-import Layout from "../components/layouts/article";
-import { getMatchs } from "../services/index";
-import Section from "../components/section";
+} from '@chakra-ui/react';
+import { SearchIcon } from '@chakra-ui/icons';
+import {MatchGridItem} from '../components/grid-item';
+import Layout from '../components/layouts/article';
+import { getMatchs } from '../services/index';
+import Section from '../components/section';
 
-import { map } from "ramda";
-import { AddMatch } from "../components/addMatch";
+import { addIndex, map, propOr } from 'ramda';
+import { AddMatch } from '../components/addMatch';
+
+const mapIndexed = addIndex(map);
 
 const Matchs = ({matchs}) => {
   return (
@@ -25,31 +27,30 @@ const Matchs = ({matchs}) => {
         <InputGroup>
           <InputLeftElement
             pointerEvents='none'
-            children={<SearchIcon color='gray.300' />}
-          />
+          >
+            <SearchIcon color='gray.300' />
+          </InputLeftElement>
           <Input type='tel' placeholder='Rechercher…' marginBottom={5} marginRight={5} />
           <AddMatch/>
         </InputGroup>
-          <SimpleGrid columns={[1, 2, 2]} gap={6}>
-            {map(
-  (match) => (
-                  <Section>
-                    <MatchGridItem match={match}></MatchGridItem>
-                  </Section>
-              ),
-        matchs
-            )}
-          </SimpleGrid>
+        <SimpleGrid columns={[1, 2, 2]} gap={6}>
+          {mapIndexed((match, matchIndex) => (
+            <Section key={`${propOr('','slug',match)}-${matchIndex}`}>
+              <MatchGridItem match={match}></MatchGridItem>
+            </Section>
+          ),
+          matchs
+          )}
+        </SimpleGrid>
       </Container>
     </Layout>
   );
 };
 
-{/*  */}
 export default Matchs;
 
 export async function getStaticProps() {
-  const matchs = (await getMatchs()) || [];
+  const matchs = await getMatchs();
   return {
     props: {matchs},
   };

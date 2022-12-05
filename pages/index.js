@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from 'react';
 import {
   Container,
   Heading,
   Box,
   SimpleGrid,
   useColorModeValue,
-} from "@chakra-ui/react";
-import Section from "../components/section";
-import Layout from "../components/layouts/article";
-import { Leaderboard } from "../components/table";
-import { getPlayers } from "../services/index";
+} from '@chakra-ui/react';
+import Section from '../components/section';
+import Layout from '../components/layouts/article';
+import { Leaderboard } from '../components/table';
+import { getPlayers } from '../services/index';
 
 const Page = ({players}) => {
 
@@ -21,7 +21,7 @@ const Page = ({players}) => {
           mb={6}
           p={3}
           textAlign='center'
-          bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
+          bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
         >
           The Ultimate Babyfoot Fever, la meilleure app babyfoot jamais créée !
         </Box>
@@ -41,7 +41,7 @@ const Page = ({players}) => {
             Les derniers matchs
           </Heading>
 
-        {/* random football image */}
+          {/* random football image */}
           <SimpleGrid columns={[1, 2, 2]} gap={6}>
           </SimpleGrid>
         </Section>
@@ -54,7 +54,7 @@ export default Page;
 
 
 export async function getStaticProps() {
-  const players = (await getPlayers()) || [];
+  const players = await getPlayers();
   return {
     props: {players},
   };

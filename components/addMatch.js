@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   Drawer,
   DrawerBody,
@@ -17,13 +17,12 @@ import {
   InputLeftAddon,
   InputRightAddon,
   Select,
-  Textarea
-} from '@chakra-ui/react'
-import { AddIcon} from '@chakra-ui/icons'
+} from '@chakra-ui/react';
+import { AddIcon} from '@chakra-ui/icons';
 
 export const AddMatch = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-  const firstField = React.useRef()
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const firstField = React.useRef();
 
   return (
     <>
@@ -86,5 +85,5 @@ export const AddMatch = () => {
         </DrawerContent>
       </Drawer>
     </>
-  )
-}
+  );
+};

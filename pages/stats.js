@@ -1,10 +1,10 @@
 import {
   Container,
   Heading,
-} from "@chakra-ui/react";
-import Layout from "../components/layouts/article";
+} from '@chakra-ui/react';
+import Layout from '../components/layouts/article';
 
-const Stats = ({ stats }) => {
+const Stats = ({}) => {
   return (
     <Layout title='Stats'>
       <Container>

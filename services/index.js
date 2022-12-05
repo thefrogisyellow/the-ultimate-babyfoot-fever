@@ -1,6 +1,6 @@
-import { request, gql} from 'graphql-request'
+import { request, gql} from 'graphql-request';
 
-const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
+const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
 export const getPlayers = async () => {
   const query = gql`
@@ -15,11 +15,17 @@ export const getPlayers = async () => {
           url
         }
       }
-    }`
+    }`;
 
-  const result = await request(graphqlAPI, query)
-  return result.players
-}
+  try {
+    const { players } = await request(graphqlAPI, query);
+    return players;
+
+  } catch(error) {
+    console.error(error);
+    return [];
+  }
+};
 
 export const getMatchs = async () => {
   const query = gql`
@@ -48,8 +54,14 @@ export const getMatchs = async () => {
       }
   `;
 
-  const result = await request(graphqlAPI, query);
-  return result.matchs
+  try {
+    const { matchs } = await request(graphqlAPI, query);
+    return matchs;
+
+  } catch(error) {
+    console.error(error);
+    return [];
+  }
 };
 
 export const getMatchDetails = async (slug) => {
@@ -79,6 +91,12 @@ export const getMatchDetails = async (slug) => {
       }
   `;
 
-  const result = await request(graphqlAPI, query, { slug });
-  return result.matchs
+  try {
+    const { matchs } = await request(graphqlAPI, query, { slug });
+    return matchs;
+
+  } catch(error) {
+    console.error(error);
+    return [];
+  }
 };
