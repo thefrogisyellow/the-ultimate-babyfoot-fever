@@ -7,6 +7,7 @@ export const MatchGridItem = ({ match }) => (
   <Box w="100%">
     <NextLink href={`/matchs/${match.slug}`}>
       <LinkBox cursor="pointer">
+        {/*// TODO: afficher le score sur l'image */}
         <Image
           src={match.thumbnail.url}
           alt={'image'}
