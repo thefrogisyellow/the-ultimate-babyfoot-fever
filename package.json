@@ -1,23 +1,36 @@
 {
-  "name": "the-ultimate-babyfoot-fever",
-  "version": "0.1.0",
+  "name": "tubf",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 0.0.0.0",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "eslint": "8.28.0",
-    "eslint-config-next": "13.0.5",
-    "next": "13.0.5",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@chakra-ui/icons": "^2.0.0",
+    "@chakra-ui/react": "^1.8.1",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "axios": "^0.25.0",
+    "chakra-ui-steps": "^1.7.3",
+    "framer-motion": "^6.2.4",
+    "graphql": "^16.5.0",
+    "graphql-request": "^4.2.0",
+    "gray-matter": "^4.0.3",
+    "html-react-parser": "^1.4.12",
+    "moment": "^2.29.3",
+    "next": "^12.0.10",
+    "ramda": "^0.28.0",
+    "react": "17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "react-multi-carousel": "^2.8.0",
+    "sass": "^1.51.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.19",
-    "tailwindcss": "^3.2.4"
+    "eslint": "8.8.0",
+    "eslint-config-next": "12.0.10",
+    "eslint-plugin-react": "^7.30.0"
   }
 }
